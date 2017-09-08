@@ -25,11 +25,11 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <p>Welcome create a Seeker account and Good Luck!</p>
+            <p>Welcome New Recruiter! PLease Fill out these information below!</p>
             <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
             <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
             <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-            <form role="form"th:action="@{/signup}" th:object="${user}"method="post" name="sentMessage">
+            <form role="form"th:action="@{/jobform}" th:object="${job}"method="post" name="sentMessage">
                 <p><input type="hidden" th:field="*{id}"/></p>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
@@ -57,7 +57,7 @@
                 </div>
 
 
-                    <div class="control-group">
+                <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Username</label>
                         <input th:field="*{username}" type="text" class="form-control" placeholder="username" >

@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public Long countByEmail(String email) {
-        return userRepository.CountByEmail(email);
+        return userRepository.countByEmail(email);
     }
 
     public User findByUsername(String username) {
@@ -34,7 +34,7 @@ public class UserService {
 
     }
 
-public void saveUser(User user){
+public void saveSeeker(User user){
 
         user.setRoles(Arrays.asList(roleRepository.findByRole("SEEKER")));
         user.setEnabled(true);
@@ -42,7 +42,7 @@ public void saveUser(User user){
 
 }
 
-    public void saveAdmin(User user){
+    public void saveRecru(User user){
 
         user.setRoles(Arrays.asList(roleRepository.findByRole("RECRU")));
         user.setEnabled(true);

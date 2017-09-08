@@ -4,6 +4,7 @@ import guevara.alvarez.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -12,6 +13,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -29,10 +31,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
-                .antMatchers("/","/signup","/css/**","/js/**","/img/**","/vendor/**","/scss/**").permitAll()
-                .antMatchers("/recru")
-                .access("hasAnyAuthority('RECRU')")
-//                .antMatchers("/admin").access("hasRole('ADMIN')")
+                .antMatchers("/","/signup","/recrureg","/css/**","/js/**","/img/**","/vendor/**","/scss/**").permitAll()
+                .antMatchers("/about")
+                .access("hasAuthority('RECRU')")
+// .antMatchers("/admin").access("hasRole('ADMIN')")
+//               .access("hasAuthority('SEEKER')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()

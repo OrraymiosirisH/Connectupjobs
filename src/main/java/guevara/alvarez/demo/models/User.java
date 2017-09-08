@@ -21,6 +21,7 @@ import java.util.HashSet;
         @Column(name = "password")
         private String password;
 
+
         @Column(name = "first_name")
         private String firstName;
 
