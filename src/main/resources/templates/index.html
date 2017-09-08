@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
-<head>
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="en">
+  <meta charset="UTF-8"/>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,11 +24,41 @@
   </head>
 
   <body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/login">Start Connect Up</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <!--<a class="nav-link" href="index.html">Create</a>-->
+          </li>
+          <li class="nav-item">
+            <!--<a class="nav-link" href="about.html">Post a Job</a>-->
+          </li>
+          <li class="nav-item">
+            <!--<a class="nav-link" href="post.html">List Jobs</a>-->
+          </li>
+          <li class="nav-item">
+            <!--<a class="nav-link" href="contact.html">List Enterprises</a>-->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+  <div sec:authorize="hasAuthority('RECRU')">
+    <!--This content is only shown to administrators. {This is only for RECRUITERS}-->
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="/login">Start Connect Up</a>
+        <!--<a class="navbar-brand" href="/logout">Logout</a>-->
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -35,22 +66,54 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="about.html">Post a Job</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="post.html">List Jobs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="post.html">Sample Post</a>
+              <a class="nav-link" href="contact.html">List Enterprises</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="/logout">Logout</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+  </div>
 
+
+  <div sec:authorize="hasAuthority('SEKKER')">
+    <!--This content is only shown to users. {This is only for Seekers}-->
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <!--<a class="navbar-brand" href="/logout">Logout</a>-->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">List all Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">List by People</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">List by Companies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('img/home-bg.jpg')">
       <div class="container">
