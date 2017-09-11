@@ -1,83 +1,54 @@
-package guevara.alvarez.demo.controllers;
-
-
-import guevara.alvarez.demo.models.Job;
-import guevara.alvarez.demo.models.Skill;
-import guevara.alvarez.demo.repositories.SkillRepository;
-import guevara.alvarez.demo.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.ArrayList;
-
+//package guevara.alvarez.demo.controllers;
+//
+//
+//import guevara.alvarez.demo.configs.UserService;
+//import guevara.alvarez.demo.models.Job;
+//import guevara.alvarez.demo.models.Skill;
+//import guevara.alvarez.demo.repositories.JobRepository;
+//import guevara.alvarez.demo.repositories.SkillRepository;
+//import guevara.alvarez.demo.repositories.UserRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//import org.springframework.validation.BindingResult;
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.ModelAttribute;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//
+//import javax.validation.Valid;
+//import java.util.ArrayList;
+//
 //@Controller
 //@RequestMapping("/connect")
+//
 //public class ConnectController {
 //
 //    @Autowired
 //    SkillRepository skillRepo;
 //
-
-
+//    @Autowired
+//    JobRepository jobRepository;
 //
-//    @GetMapping("/addjob")
-
-//    public String loadskill(Model model) {
-//        model.addAttribute("skill", new Skill());
+//    @Autowired
+//    private UserService userService;
 //
-//
-//        Iterable<Skill> depskill;
-//        ArrayList<Skill> toadd = new ArrayList<>();
-//
-//
-//        Skill newDepa1 = new Skill();
-//        newDepa1.setSki("Typing");
-//
-//        Skill newDepa2 = new Skill();
-//        newDepa2.setSki("Programming");
-//
-//        Skill newDepa3 = new Skill();
-//        newDepa3.setSki("Networking");
-//
-//        Skill newDepa4 = new Skill();
-//        newDepa4.setSki("Weightlifting");
-//
-//        toadd.add(newDepa1);
-//        toadd.add(newDepa2);
-//        toadd.add(newDepa3);
-//        toadd.add(newDepa4);
-//
-//        depskill = toadd;
-//
-//        skillRepo.save(depskill);
-//
-//        return "jobform";
-//    }
-//
-//    public String addBook(Model model) {
+//    @GetMapping("/newpost")
+//    public String addPost(Model model) {
+//        model.addAttribute("reslist", skillRepo.findAll());
 //        model.addAttribute("job", new Job());
-//
-//        Iterable<Job> depalist = skillRepo.findAll();
-//        model.addAttribute("dep", depalist);
-//
-//
-//
-//
-//        return "jobform";
+//        return "newpost";
 //    }
 //
-//    @PostMapping("/addjob")
-//    public String processBook(@ModelAttribute Job job, BindingResult bindingResult) {
+//    @PostMapping("/newpost")
+//    public String processPost(@Valid @ModelAttribute("job") Job job, BindingResult bindingResult) {
 //        if (bindingResult.hasErrors()) {
-//            return "jobform";
+//            System.out.println("**Errors");
+//            return "newpost";
 //        }
-//        skillRepo.save(job);
-//        return "redirect:/connect/listjob";
+//        System.out.println("**NO Errors");
+//        jobRepository.save(job);
+//        return "redirect:/index";
+//
 //    }
 //}
